@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  postgres_dwh:
+    image: postgres:10-alpine
+    container_name: postgres_dwh
+    volumes:
+      - "dwh:/var/lib/postgresql/data"
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
+
+
+volumes:
+  dwh:
+    name: myvolume
+    external: false
+
+    
